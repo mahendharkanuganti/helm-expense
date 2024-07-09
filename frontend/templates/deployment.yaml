@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: expense
+  #below are deployment related labels
+  labels:
+    component: frontend
+    project: expense
+    tier: web
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    matchLabels:
+      component: frontend
+      project: expense
+      tier: web
+  # pod definition 
+  template:
+    metadata:
+      labels:
+        component: frontend
+        project: expense
+        tier: web
+    spec:
+      containers:
+      - name: frontend
+        image: mahendhar501/frontend:{{ .Values.deployment.imageVersion }}
