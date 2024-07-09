@@ -9,6 +9,6 @@ spec:
     purpose: helm
   ports:
   - protocol: TCP
-    port: 80 # service port
-    targetPort: 80  #target port
+    port: 80 #service-port
+    targetPort: 80 #target-port
     nodePort: {{ .Values.service.nodePort }}
